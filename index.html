@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Emoji Text Generator 😵</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <h1>Emoji Text Generator</h1>
+  <span class="small">coded with ❤️ by <a href="https://github.com/Chiki1601" target="_blank">Chiki1601</a></span>
+  <div class="inline">
+    <input type="text" maxlength="15" @keyup.enter="buildResult" placeholder="Your text [A-Z0-9!?.,_-+#]" v-model="text">
+    <input type="submit" @click="buildResult" value="Generate">
+  </div>
+  <div class="result" v-if="result.length">
+    <span v-for="(row,index) in result" class="row">
+      <span v-for="(col, index) in row" :class="{hidden: col == '⚪️'}" class="col">
+        {{col}}
+      </span>
+    </span>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
